@@ -26,6 +26,7 @@ public class DeptController {
         return Result.success(deptList);
     }
 
+    // delete one dept
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         log.info("delete department according to id:" + id);
@@ -33,6 +34,7 @@ public class DeptController {
         return Result.success();
     }
 
+    // add one dept
     @PostMapping
     public Result add(@RequestBody Dept dept){
         log.info("add new dept: {}", dept);
@@ -40,6 +42,7 @@ public class DeptController {
         return Result.success();
     }
 
+    // search dept via id
     @GetMapping("/{id}")
     public Result search(@PathVariable Integer id){
         log.info("search department data according to id:{}", id);
@@ -47,6 +50,7 @@ public class DeptController {
         return Result.success(dept);
     }
 
+    // modify dept
     @PutMapping
     public Result update(@RequestBody Dept dept){
         log.info("update a dept: {}", dept);
