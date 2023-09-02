@@ -28,7 +28,7 @@ public class DeptController {
 
     // delete one dept
     @DeleteMapping("/{id}")
-    public Result delete(@PathVariable Integer id){
+    public Result delete(@PathVariable Integer id) throws Exception{
         log.info("delete department according to id:" + id);
         deptService.delete(id);
         return Result.success();
@@ -57,6 +57,5 @@ public class DeptController {
         deptService.update(dept);
         return Result.success();
     }
-
 
 }

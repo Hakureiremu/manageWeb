@@ -20,11 +20,6 @@ public class EmpServiceImpl implements EmpService {
 
     @Override
     public PageBean page(Integer page, Integer pageSize, String name, Short gender, LocalDate begin, LocalDate end) {
-//        Long count = empMapper.count();
-//        List<Emp> empList = empMapper.page((page-1)*pageSize, pageSize);
-//        PageBean pageBean = new PageBean(count, empList);
-//        return pageBean;
-
         //pageHelper method
         PageHelper.startPage(page, pageSize);
         List<Emp> empList = empMapper.list(name,gender,begin,end);
@@ -55,4 +50,6 @@ public class EmpServiceImpl implements EmpService {
         emp.setUpdateTime(LocalDateTime.now());
         empMapper.update(emp);
     }
+
+
 }

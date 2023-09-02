@@ -5,6 +5,7 @@ import com.lky.javaweb.pojo.PageBean;
 import com.lky.javaweb.pojo.Result;
 import com.lky.javaweb.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class EmpController {
                        String name, Short gender,
                        @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
                        @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end){
-        log.info("get emp info, page start:{} Size: {}", page, pageSize, name, gender, begin, end);
+        log.info("get emp info, page start:{} Size: {}", page, pageSize);
         PageBean pageBean= empService.page(page, pageSize, name, gender, begin, end);
         return Result.success(pageBean);
     }
@@ -42,7 +43,7 @@ public class EmpController {
     // add employer with avatar image
     @PostMapping
     public Result add(@RequestBody Emp emp){
-        log.info("add employer:", emp);
+        log.info("add employer:{}", emp);
         empService.add(emp);
         return Result.success();
     }
@@ -62,4 +63,5 @@ public class EmpController {
         empService.update(emp);
         return Result.success();
     }
+
 }

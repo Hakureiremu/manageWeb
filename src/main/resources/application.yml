@@ -24,3 +24,7 @@ aliyun:
     accessKeyId: LTAI5tHMTdkmEB9Av3FXhofs
     accessKeySecret: fWkOQ5zGmQ86hfRD8FkEgo0MENfOsn
     bucketName: avatarimg1
+
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
