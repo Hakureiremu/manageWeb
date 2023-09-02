@@ -39,11 +39,27 @@ public class EmpController {
         return Result.success();
     }
 
-    //
+    // add employer with avatar image
     @PostMapping
     public Result add(@RequestBody Emp emp){
         log.info("add employer:", emp);
         empService.add(emp);
+        return Result.success();
+    }
+
+    // modify an employer, show message first
+    @GetMapping("/{id}")
+    public Result get(@PathVariable Integer id){
+        log.info("get info of emp according to id: {}", id);
+        Emp emp = empService.getById(id);
+        return Result.success(emp);
+    }
+
+    // modify an employer
+    @PutMapping
+    public Result put(@RequestBody Emp emp){
+        log.info("modify emp record to:{}", emp);
+        empService.update(emp);
         return Result.success();
     }
 }

@@ -4,6 +4,7 @@ import com.lky.javaweb.pojo.Emp;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,4 +24,9 @@ public interface EmpMapper {
     @Insert("insert into emp(username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time) " +
             "values (#{username}, #{password}, #{name}, #{gender}, #{image}, #{job}, #{entrydate}, #{deptId}, #{createTime}, #{updateTime})")
     public void add(Emp emp);
+
+    @Select("select * from emp where id = #{id}")
+    public Emp getById(Integer id);
+
+    public void update(Emp emp);
 }
